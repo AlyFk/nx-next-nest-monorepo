@@ -12,7 +12,7 @@ describe('testing useGetUsers hook', () => {
   });
   test('sould fetchNextPage works fine in hook', async () => {
     const { result, waitFor } = renderHook(
-      () => useGetUsers({ limit, name: search }),
+      () => useGetUsers({ limit, username: search }),
       {
         wrapper: createWrapper(),
       }

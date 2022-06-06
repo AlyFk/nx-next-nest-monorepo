@@ -29,5 +29,5 @@ export interface IGitUsersResponse {
 export interface IGitUsersRequest {
   limit?: number;
   page?: number;
-  name: string;
+  username: string;
 }

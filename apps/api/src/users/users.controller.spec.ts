@@ -37,7 +37,7 @@ describe('UsersController', () => {
   });
   describe('findAll()', () => {
     it('should find all users ', async () => {
-      const data = await controller.findAll({ page, limit, name: 'test' });
+      const data = await controller.findAll({ page, limit, username: 'test' });
       data.subscribe((res) => {
         expect(res).toEqual(getMockUsers(page, limit));
       });
