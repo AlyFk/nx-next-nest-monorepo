@@ -4,7 +4,7 @@ import { IGitUsersRequest } from '@dpg-code-challenge/data';
 
 export class SearchUserDto implements IGitUsersRequest {
   @IsString()
-  public name: string;
+  public username: string;
 
   @IsOptional()
   @Type(() => Number)
