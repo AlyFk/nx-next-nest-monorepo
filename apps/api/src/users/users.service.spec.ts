@@ -33,7 +33,7 @@ describe('UsersService', () => {
   it('should find users', () => {
     const limit = 10;
     const page = 1;
-    const name = 'test';
+    const username = 'test';
     const data = getMockUsers(page, limit);
     const response: AxiosResponse<IGitUsersResponse> = {
       data,
@@ -43,7 +43,7 @@ describe('UsersService', () => {
       statusText: 'OK',
     };
     jest.spyOn(httpService, 'get').mockImplementationOnce(() => of(response));
-    service.findAll({ limit, page, name }).subscribe((res) => {
+    service.findAll({ limit, page, username }).subscribe((res) => {
       expect(res).toEqual(data);
     });
   });

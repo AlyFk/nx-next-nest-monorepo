@@ -11,10 +11,10 @@ export class UsersService {
   findAll({
     limit,
     page,
-    name,
+    username,
   }: IGitUsersRequest): Observable<AxiosResponse<IGitUsersResponse>> {
     return this.httpService.get(
-      `https://api.github.com/search/users?q=${name} in:login&sort=stars&order=desc&page=${page}&per_page=${limit}`
+      `https://api.github.com/search/users?q=${username} in:login&sort=stars&order=desc&page=${page}&per_page=${limit}`
     );
   }
 }

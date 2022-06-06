@@ -4,7 +4,7 @@ import type { AxiosRequestConfig } from 'axios';
 import type { AsyncReturnType } from 'app/types';
 
 function useGetUsers<TData = AsyncReturnType<typeof getUsers>, TError = Error>(
-  { limit, name }: { limit: number; name: string },
+  { limit, username }: { limit: number; username: string },
   options?: {
     query?: UseInfiniteQueryOptions<
       AsyncReturnType<typeof getUsers>,
@@ -15,9 +15,9 @@ function useGetUsers<TData = AsyncReturnType<typeof getUsers>, TError = Error>(
   }
 ) {
   const { query: queryOptions, axios: axiosOptions } = options || {};
-  const queryKey = queryOptions?.queryKey ?? ['users', name];
+  const queryKey = queryOptions?.queryKey ?? ['users', username];
   const queryFn = async ({ pageParam = 1 }) =>
-    getUsers({ limit, page: pageParam, name }, axiosOptions);
+    getUsers({ limit, page: pageParam, username }, axiosOptions);
 
   return useInfiniteQuery<AsyncReturnType<typeof queryFn>, TError, TData>(
     queryKey,
