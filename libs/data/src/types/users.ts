@@ -23,5 +23,11 @@ export interface IUser {
 export interface IGitUsersResponse {
   total_count: number;
   incomplete_results: boolean;
-  items: IUser[]
+  items: IUser[];
+}
+
+export interface IGitUsersRequest {
+  limit?: number;
+  page?: number;
+  name: string;
 }
