@@ -26,4 +26,4 @@ const useIntersectionObserver = (
   }, [callback, options, target]);
 };
 
-export default useIntersectionObserver
+export default useIntersectionObserver;

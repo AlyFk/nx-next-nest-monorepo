@@ -5,16 +5,12 @@ const imgLoader = ({ src }: { src: string }) => {
   return src;
 };
 
-type UserCardProps = Pick<IUser, 'id' | 'avatar_url' | 'login'>
+type UserCardProps = Pick<IUser, 'id' | 'avatar_url' | 'login'>;
 
-const UserCard: React.FC<UserCardProps> = ({
-  id,
-  avatar_url,
-  login,
-}) => {
+const UserCard: React.FC<UserCardProps> = ({ id, avatar_url, login }) => {
   return (
-    <figure className="flex flex-col items-center p-8 transition-colors duration-200 transform group rounded-xl">
-      <div className="w-32 h-32 rounded-full ring-4 ring-gray-300 relative overflow-hidden">
+    <figure className="group flex transform flex-col items-center rounded-xl p-8 transition-colors duration-200">
+      <div className="relative h-32 w-32 overflow-hidden rounded-full ring-4 ring-gray-300">
         <Image
           src={avatar_url}
           loader={imgLoader}
@@ -24,11 +20,11 @@ const UserCard: React.FC<UserCardProps> = ({
         />
       </div>
 
-      <figcaption className="mt-4 text-2xl font-semibold text-gray-700 capitalize">
+      <figcaption className="mt-4 text-2xl font-semibold capitalize text-gray-700">
         {login}
       </figcaption>
 
-      <p className="mt-2 text-gray-500 capitalize">User ID: {id}</p>
+      <p className="mt-2 capitalize text-gray-500">User ID: {id}</p>
     </figure>
   );
 };
