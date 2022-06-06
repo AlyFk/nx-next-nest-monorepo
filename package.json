@@ -9,7 +9,9 @@
     "test:api": "nx test api",
     "test:client": "nx test client",
     "dev:api": "nx serve api",
-    "dev:client": "nx serve client"
+    "dev:client": "nx serve client",
+    "build:api": "nx build api",
+    "build:client": "nx build client"
   },
   "private": true,
   "dependencies": {
