@@ -1,8 +1,13 @@
+import AppProvider from 'app/providers';
 import { AppProps } from 'next/app';
-import './styles.css';
+import '../styles.css';
 
-function CustomApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <AppProvider pageProps={pageProps}>
+      <Component {...pageProps} />
+    </AppProvider>
+  );
 }
 
-export default CustomApp;
+export default MyApp;
