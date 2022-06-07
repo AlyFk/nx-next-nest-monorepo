@@ -12,6 +12,7 @@ const UserCard: React.FC<UserCardProps> = ({ id, avatar_url, login }) => {
     <figure className="group flex transform flex-col items-center rounded-xl p-8 transition-colors duration-200">
       <div className="relative h-32 w-32 overflow-hidden rounded-full ring-4 ring-gray-300">
         <Image
+          priority={true}
           src={avatar_url}
           loader={imgLoader}
           alt={`avatar-${login}`}

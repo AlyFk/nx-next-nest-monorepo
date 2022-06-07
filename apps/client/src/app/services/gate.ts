@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 
 const apiClient = axios.create({
   baseURL: process.env.NX_API_URL,
@@ -32,5 +32,8 @@ apiClient.interceptors.response.use(
     return Promise.reject(error);
   }
 );
+export const isHttpRequestError = (error: unknown): error is AxiosError => {
+  return (error as AxiosError).isAxiosError;
+};
 
 export default apiClient;
