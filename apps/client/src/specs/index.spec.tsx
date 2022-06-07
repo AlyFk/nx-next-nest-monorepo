@@ -4,18 +4,46 @@ import { screen } from '@testing-library/react';
 import Home from '../pages/index';
 import { renderWithClient } from 'test-utils/wrapper';
 import { getMockUsers } from '@dpg-code-challenge/data';
+
 import {
   MockedObserver,
   traceMethodCalls,
   IntersectionCallBack,
 } from 'test-utils/mockedObserverIntersection';
+import { NextRouter } from 'next/router';
 
 const limit = 12;
+const mockRouter: NextRouter = {
+  isLocaleDomain: false,
+  isPreview: false,
+  isReady: false,
+  basePath: '',
+  pathname: '/',
+  route: '/',
+  asPath: '/',
+  query: { username: 'test' },
+  push: jest.fn(),
+  replace: jest.fn(),
+  reload: jest.fn(),
+  back: jest.fn(),
+  prefetch: jest.fn(),
+  beforePopState: jest.fn(),
+  events: {
+    on: jest.fn(),
+    off: jest.fn(),
+    emit: jest.fn(),
+  },
+  isFallback: false,
+};
+jest.mock('next/router', () => ({
+  useRouter: jest.fn().mockImplementation(() => mockRouter),
+}));
 describe('home page', () => {
   let observer: any;
   let mockedObserverCalls: { [k: string]: any } = {};
 
   beforeEach(() => {
+
     Object.defineProperty(window, 'IntersectionObserver', {
       writable: true,
       value: jest
